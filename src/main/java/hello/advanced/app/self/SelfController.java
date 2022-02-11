@@ -1,8 +1,6 @@
 package hello.advanced.app.self;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,6 +12,8 @@ public class SelfController {
     public String test1(){
         try {
             selfService.test();
+
+            SelfBuilder builder = SelfBuilder.builder().name("yjw").age(0).build();
             return "ok";
         } catch (Exception e){
             e.printStackTrace();
