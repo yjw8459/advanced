@@ -25,9 +25,9 @@ public class FieldServiceTest {
         threadB.setName("thread-B");
 
         threadA.start();
-        sleep(2000);    //쓰레드 A의 저장 시간보다 빠르게 쓰레드 B가 접근할 경우 동시성 문제 발생
+        sleep(500);    //쓰레드 A의 저장 시간보다 빠르게 쓰레드 B가 접근할 경우 동시성 문제 발생
         threadB.start();
-        sleep(2000);
+        sleep(3000);
 
         log.info("main exit");
     }
