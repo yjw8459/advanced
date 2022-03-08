@@ -19,7 +19,7 @@ public class OrderControllerV3 {
         TraceStatus status = null;
         try {
             status = trace.begin("OrderController.request()");
-            orderService.orderItem(itemId);
+            orderService.orderItem(itemId);//핵심 기능, 나머지는 부가 기능
             trace.end(status);
             return "ok";
         } catch (Exception e){
