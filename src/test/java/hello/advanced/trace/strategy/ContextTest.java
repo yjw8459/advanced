@@ -1,9 +1,6 @@
 package hello.advanced.trace.strategy;
 
-import hello.advanced.trace.strategy.code.ContextV1;
-import hello.advanced.trace.strategy.code.Strategy;
-import hello.advanced.trace.strategy.code.StrategyLogic1;
-import hello.advanced.trace.strategy.code.StrategyLogic2;
+import hello.advanced.trace.strategy.code.*;
 import hello.advanced.trace.template.AbstractTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -65,7 +62,25 @@ public class ContextTest {
 
         ContextV1 contextV3 = new ContextV1(new StrategyLogic1());
         contextV3.execute();
-
     }
+
+    /**
+     * 전략 패턴 람다 사용
+     * 선 조립 후 사용은 조립 후 변경하기 번거롭다.
+     * 전략을 실시간으로 변경해야 하거나 컨텍스트를 싱글톤으로 사용할 경우,
+     * 컨텍스트를 하나 더 생성하고 다른 Strategy를 주입하는 것이 나을 수 있다.
+     */
+    @Test
+    public void strategyV2(){
+        ContextV1 contextV1 = new ContextV1(() -> log.info("비즈니스 로직1 실행")); //선 조립
+        contextV1.execute();//후 실행
+
+        //다른 컨텍스트 생성
+        ContextV1 contextV2 = new ContextV1(() -> log.info("비즈니스 로직2 실행"));
+        contextV2.execute();
+    }
+
+
+
 
 }
