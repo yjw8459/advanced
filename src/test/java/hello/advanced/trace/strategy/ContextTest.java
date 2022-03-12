@@ -1,11 +1,11 @@
 package hello.advanced.trace.strategy;
 
-import hello.advanced.trace.strategy.code.*;
+import hello.advanced.trace.strategy.code.strategy.ContextV1;
+import hello.advanced.trace.strategy.code.strategy.StrategyLogic1;
+import hello.advanced.trace.strategy.code.strategy.StrategyLogic2;
 import hello.advanced.trace.template.AbstractTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-
-import javax.naming.Context;
 
 @Slf4j
 public class ContextTest {
